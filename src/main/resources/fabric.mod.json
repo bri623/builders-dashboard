@@ -1,0 +1,31 @@
+{
+	"schemaVersion": 1,
+	"id": "builders_dashboard",
+	"version": "${version}",
+	"name": "builders_dashboard",
+	"description": "This is an example description! Tell everyone what your mod is about!",
+	"authors": [
+		"Me!"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/builders_dashboard/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"me.eggzman.builders_dashboard.Builders_dashboard"
+		],
+		"client": [
+			"me.eggzman.builders_dashboard.Builders_dashboardClient"
+		]
+	},
+	"depends": {
+		"fabricloader": ">=0.18.4",
+		"minecraft": "~1.21.11",
+		"java": ">=21",
+		"fabric-api": "*"
+	}
+}
