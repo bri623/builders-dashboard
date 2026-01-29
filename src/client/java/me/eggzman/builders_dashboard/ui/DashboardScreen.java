@@ -1,10 +1,10 @@
 package me.eggzman.builders_dashboard.ui;
 
 import net.minecraft.client.gui.DrawContext;
-import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.text.Text;
 
-public class DashboardScreen extends Screen {
+public class DashboardScreen extends DashboardBaseScreen {
+    private static final Text[] DESCRIPTION_LINES = new Text[] {};
 
     public DashboardScreen() {
         super(Text.literal("Builder's Dashboard"));
@@ -12,8 +12,13 @@ public class DashboardScreen extends Screen {
 
     @Override
     protected void init() {
-        // Later you can add buttons/widgets here with addDrawableChild(...)
         super.init();
+        clearTabs();
+        addTab("Home", DashboardScreen::new, true);
+        addTab("Photos", PhotoSettingsScreen::new, false);
+        addTab("Block Palettes", BlockPalettesScreen::new, false);
+        addTab("Groups", PinGroupsScreen::new, false);
+        addTab("Keybinds", KeybindsScreen::new, false);
     }
 
     @Override
@@ -25,6 +30,8 @@ public class DashboardScreen extends Screen {
         int y1 = (this.height - panelH) / 2;
         int x2 = x1 + panelW;
         int y2 = y1 + panelH;
+
+        setTabAnchor(x1, y1, panelH);
 
         // Panel background + border
         context.fill(x1, y1, x2, y2, 0xFF1B1B1B);
@@ -43,16 +50,8 @@ public class DashboardScreen extends Screen {
                 0xFFFFFFFF
         );
 
-        // Example body text
-        context.drawCenteredTextWithShadow(
-                this.textRenderer,
-                Text.literal("Press ESC to close"),
-                this.width / 2,
-                y1 + 40,
-                0xFFCCCCCC
-        );
-
         super.render(context, mouseX, mouseY, delta);
+        renderTabs(context, mouseX, mouseY);
     }
 
     @Override

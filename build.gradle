@@ -25,6 +25,12 @@ loom {
 		}
 	}
 
+	runs {
+		client {
+			vmArg "-Djava.awt.headless=false"
+		}
+	}
+
 }
 
 dependencies {
