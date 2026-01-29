@@ -2,14 +2,14 @@
 	"schemaVersion": 1,
 	"id": "builders_dashboard",
 	"version": "${version}",
-	"name": "builders_dashboard",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"name": "Builders Dashboard",
+	"description": "HUD notes + photo board for builders. Pin photos/notes on screen, drag/resize polaroids, and import block palettes. Default keys: O = toggle HUD, P = open dashboard (editable in config).",
 	"authors": [
-		"Me!"
+		"bri623"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"homepage": "https://github.com/bri623/builders-dashboard",
+		"sources": "https://github.com/bri623/builders-dashboard"
 	},
 	"license": "CC0-1.0",
 	"icon": "assets/builders_dashboard/icon.png",
@@ -20,6 +20,9 @@
 		],
 		"client": [
 			"me.eggzman.builders_dashboard.Builders_dashboardClient"
+		],
+		"modmenu": [
+			"me.eggzman.builders_dashboard.compat.ModMenuIntegration"
 		]
 	},
 	"depends": {
@@ -27,5 +30,8 @@
 		"minecraft": "~1.21.11",
 		"java": ">=21",
 		"fabric-api": "*"
+	},
+	"suggests": {
+		"modmenu": "*"
 	}
 }
