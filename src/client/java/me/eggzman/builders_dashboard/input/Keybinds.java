@@ -80,6 +80,10 @@ public final class Keybinds {
         updateKeyBindings();
 
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
+            if (client == null || client.world == null || client.player == null) {
+                clearDownStates();
+                return;
+            }
             if (isTypingInTextField(client)) {
                 clearDownStates();
                 return;
